@@ -3,4 +3,4 @@ source "http://gems.github.com"
 
 gem 'sinatra'
 gem 'json'
-gem 'awesome-print'
+gem 'awesome_print'
