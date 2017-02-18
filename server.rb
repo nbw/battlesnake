@@ -5,7 +5,7 @@ require 'json'
 set :port, ENV['PORT']
 
 get '/' do
-  return 'Hello World'.to_json
+  return { message: 'Hello World'}.to_json
 end
 
 post '/start' do
