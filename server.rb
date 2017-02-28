@@ -61,8 +61,13 @@ get '/bind' do
     );
     p = Painter.new(g)
     p.paint
-    p.grid.print
+    # p.grid.print
+    tree = Tree.new(p.grid)
+    tree.build_tree
+    t = tree.tree
+    # binding.pry
   }
+
   return { 
     message: "Done bind.",
     time: "#{Time.now}",

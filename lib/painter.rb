@@ -102,6 +102,7 @@ class Painter
 					grid.area[x][y] += v.val
 				end
 			end
+			grid.area[f_x][f_y] = weight*(degree+1) # the food is actually a value too!
 		end
   	end
 
@@ -116,7 +117,7 @@ class Painter
   		head_vectors.each do |v|
 			x = snake.head.x + v.dx
 			y = snake.head.y + v.dy
-			if grid.within_bounds?(x, y) && (grid.area[x][y].is_a? Numeric)
+			if grid.traversable?(x,y)
 				grid.area[x][y] += v.val
 			end
 		end
@@ -135,7 +136,7 @@ class Painter
   			vectors.each do |v|
   				x = s_x + v.dx
   				y = s_y + v.dy
-  				if grid.within_bounds?(x, y) && (grid.area[x][y].is_a? Numeric)
+  				if grid.traversable?(x,y)
 	  				grid.area[x][y] += v.val
 	  			end
   			end

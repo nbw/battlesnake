@@ -13,6 +13,12 @@ module PainterWallConstants
 	end
 end
 
+module TreeConstants
+	module Tree
+		LEVELS = 8
+	end
+end
+
 module SnakeConstants
 	module Snakes
 		module Me
@@ -44,5 +50,6 @@ class Config
 	include PainterWallConstants
 	include SnakeConstants
 	include FoodConstants
+	include TreeConstants
 end
 

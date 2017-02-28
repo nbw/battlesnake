@@ -20,9 +20,9 @@ class Grid
 				if area[j][i].is_a? String
 					line += "  #{area[j][i]}  "
 				elsif area[j][i] >= 0
-					line += (area[j][i] == 0) ? '  .  ' : "  #{area[j][i]}  "
+					line += (area[j][i] == 0) ? '  0  ' : "  #{area[j][i]}  "
 				else
-					line += (area[j][i] == 0) ? '  .  ' : " #{area[j][i]}  "
+					line += (area[j][i] == 0) ? '  0  ' : " #{area[j][i]}  "
 				end
 			end
 			puts line + "  | \n\n"
@@ -33,13 +33,23 @@ class Grid
 
 	# checks if point (x,y) is within the bounds of the grid.
 	def within_bounds? x, y
-		if ( (x < 0) && (x > @width-1)) 
+		if ( (x < 0) || (x >= @width)) 
 			return false
-		elsif  ( (y < 0) && (y > @height-1)) 
+		elsif  ( (y < 0) || (y >= @height)) 
 			return false
 		else
 			return true
 		end
+	end
+
+	# checks if point (x,y) is within the bounds of the grid.
+	def traversable? x, y
+		within_bounds?(x, y) && (@area[x][y].is_a? Numeric)
+	end
+
+		# checks if point (x,y) is within the bounds of the grid.
+	def my_snake
+		@snakes.find{|s| s.id = @me}
 	end
 
 	private
