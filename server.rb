@@ -62,9 +62,10 @@ get '/bind' do
     p = Painter.new(g)
     p.paint
     # p.grid.print
-    tree = Tree.new(p.grid)
-    tree.build_tree
-    t = tree.tree
+    tb = TreeBuilder.new(p.grid)
+    tb.build_tree
+    t = tb.tree
+    puts "Node count: #{tb.count}"
     # binding.pry
   }
 
@@ -72,8 +73,8 @@ get '/bind' do
     message: "Done bind.",
     time: "#{Time.now}",
     bench: "#{(bench.total*1000).floor}ms",
-    time_percent: "#{bench.total.round(2)*1000*100/200}%"
-
+    time_percent: "#{bench.total.round(2)*1000*100/200}%",
+    levels: Config::Tree::LEVELS
   }.to_json
 end
 

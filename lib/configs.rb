@@ -15,7 +15,7 @@ end
 
 module TreeConstants
 	module Tree
-		LEVELS = 8
+		LEVELS = 6
 	end
 end
 
