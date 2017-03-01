@@ -76,7 +76,7 @@ get '/bind' do
     # bench: "#{(bench.total*1000).floor}ms",
     # time_percent: "#{bench.total.round(2)*1000*100/200}%",
     levels: Config::Tree::LEVELS,
-    nodes: tb.count
+    # nodes: tb.count
   }.to_json
 end
 
