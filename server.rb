@@ -64,9 +64,9 @@ get '/bind' do
     p = Painter.new(g)
     p.paint
     # p.grid.print
-    tb = TreeBuilder.new(p.grid)
-    tb.build_tree
-    t = tb.tree
+    # tb = TreeBuilder.new(p.grid)
+    # tb.build_tree
+    # t = tb.tree
     # binding.pry
   # }
 
