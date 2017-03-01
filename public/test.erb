@@ -1,0 +1,53 @@
+<html>
+	<head>
+	<title>Battlesnake Test Page</title>
+	<style>
+		body { font-family: Helvetica; font-size: 16pt; background-color: #123343;}
+		button { font-size: 20pt; text-align: center; display: block; margin: auto; padding: 4%; margin-top: 100px; }
+		p { padding: 0 20px 0 20px 0; font-size: 25pt; color: white; }
+	</style>
+	</head>
+	<body>
+	<button id="go">make move</button>
+	<p id="message"></p>
+	<p id="average"></p>
+	<p id="max"></p>
+	<p id="levels"></p>
+	<p id="nodes"></p>
+	</body>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			var times = [];
+			$("#go").click(function(){
+				var ajaxTime= new Date().getTime();
+				$.ajax({
+				  type: "GET",
+				  url: "/bind",
+				  data: {},
+				  success: function(res){
+				  	var totalTime = new Date().getTime()-ajaxTime;
+				  	times.push(totalTime);
+				  	window.r = res;
+				  	console.log("success!");
+				  	$("#message").text("Success: " + totalTime + "ms");
+				  	$("#average").text("Average: " + average_time(times) + "ms (of " + times.length + " times )");
+				  	$("#max").text("Max: " + Math.max.apply(null, times) + "ms");
+				  	$("#levels").text("Levels: " + res.levels);
+				  	$("#nodes").text("Levels: " + res.nodes);
+				  },
+				  dataType: 'json'
+				});
+			});
+			average_time = function(t){
+				console.log(t);
+				var sum = 0
+
+				for( var i = 0; i < t.length; i++ ){
+				    sum += t[i]; //don't forget to add the base
+				}
+				return sum/t.length;
+			}
+		});
+	</script>
+</html>

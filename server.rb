@@ -10,6 +10,8 @@ Dir["lib/*.rb"].each {|file| require_relative file }
 
 set :port, ENV['PORT']
 set :bind, '0.0.0.0'
+set :public_folder, File.dirname(__FILE__) + '/public'
+set :views, File.dirname(__FILE__) + '/public'
 
 TEST_DATA = {
   "you": "25229082-f0d7-4315-8c52-6b0ff23fb1fb",
@@ -46,12 +48,12 @@ TEST_DATA = {
 }
 
 get '/' do
-  return { message: 'Hello World'}.to_json
+  erb :"test"
 end
 
 get '/bind' do
   # binding.pry
-  bench = Benchmark.measure { 
+  # bench = Benchmark.measure { 
     g = Grid.new(
       width: TEST_DATA[:width], 
       height: TEST_DATA[:height],
@@ -65,16 +67,16 @@ get '/bind' do
     tb = TreeBuilder.new(p.grid)
     tb.build_tree
     t = tb.tree
-    puts "Node count: #{tb.count}"
     # binding.pry
-  }
+  # }
 
   return { 
     message: "Done bind.",
     time: "#{Time.now}",
-    bench: "#{(bench.total*1000).floor}ms",
-    time_percent: "#{bench.total.round(2)*1000*100/200}%",
-    levels: Config::Tree::LEVELS
+    # bench: "#{(bench.total*1000).floor}ms",
+    # time_percent: "#{bench.total.round(2)*1000*100/200}%",
+    levels: Config::Tree::LEVELS,
+    nodes: tb.count
   }.to_json
 end
 
