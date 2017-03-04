@@ -15,7 +15,7 @@ end
 
 module TreeConstants
 	module Tree
-		LEVELS = 5
+		LEVELS = 6
 		MIN_THRESHOLD = 0.3
 		THRESHOLD = 0.5
 	end
