@@ -15,7 +15,7 @@ end
 
 module TreeConstants
 	module Tree
-		LEVELS = 5
+		LEVELS = 6
 		MIN_THRESHOLD = 0.3
 		THRESHOLD = 0.5
 	end
@@ -35,7 +35,7 @@ module SnakeConstants
 			BODY_WEIGHT = 1
 
 			HEAD_DEGREE = 7
-			HEAD_WEIGHT = -5
+			HEAD_WEIGHT = 3
 		end
 	end
 end
