@@ -52,14 +52,23 @@ class Painter
 					head_degree:Config::Snakes::Me::HEAD_DEGREE,
 					head_weight:Config::Snakes::Me::HEAD_WEIGHT,
 					body_degree:Config::Snakes::Me::BODY_DEGREE,
-					body_weight:Config::Snakes::Me::BODY_WEIGHT
+					body_weight:Config::Snakes::Me::BODY_WEIGHT,
+					length_weight: 1
 				}
   			else 
+  				length_ratio = (1 + snake.body.length)/(1 + @grid.my_snake.body.length)
+  				if length_ratio <= 1
+  					length_weight = Math.exp(length_ratio/Math.exp(1.7))-Math.exp(-1.6)
+  				else
+  					length_weight = 0.6*log(length_ratio)+1
+  				end
+  				puts "Length weight: #{length_weight}"
 				configs = {
 					head_degree:Config::Snakes::Enemy::HEAD_DEGREE,
 					head_weight:Config::Snakes::Enemy::HEAD_WEIGHT,
 					body_degree:Config::Snakes::Enemy::BODY_DEGREE,
-					body_weight:Config::Snakes::Enemy::BODY_WEIGHT
+					body_weight:Config::Snakes::Enemy::BODY_WEIGHT,
+					length_weight: length_weight
 				}
   			end
   			paint_snake(snake:snake, configs: configs)
@@ -115,7 +124,7 @@ class Painter
   		# Head
   		##############
   		head_degree = configs[:head_degree]
-  		head_weight = configs[:head_weight]
+  		head_weight = configs[:head_weight]*configs[:length_weight]
   		paintable_directions = snake.paintable_directions(snake.head)
   		head_vectors = snake_paint_vectors(paintable_directions: paintable_directions, degree: head_degree, weight: head_weight)
   		head_vectors.each do |v|
@@ -130,7 +139,7 @@ class Painter
 		# Body
 		##############
   		body_degree = configs[:body_degree]
-  		body_weight = configs[:body_weight]
+  		body_weight = configs[:body_weight]*configs[:length_weight]
 
   		snake.body.each do |coord|
   			vectors = []
@@ -188,5 +197,7 @@ class Painter
 
   	def food_health_equation health_percent
   		Config::Food::MULT*(Math.exp(-1*health_percent)-Math.exp(-1))/(1-Math.exp(-1)) + 1.0
+
+  		Config::Food::MULT*(100*Math.exp(-4*health_percent)-Math.exp(-1))/(100-Math.exp(-1))+1.0
   	end
 end

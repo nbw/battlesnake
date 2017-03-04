@@ -13,11 +13,11 @@ class Squirrel
 	# 
 	def bottoms_up_method
 		# 1. take the nodes that went the farthest (i.e.: max tree level)
-		max_level = @tree.tree_bottom.collect(&:level).max 
+		max_level = @tree.tree_bottom.collect(&:level).max
 		# 2. Of those, use the one with the minimum sum value
 		winner = @tree.tree_bottom.select{|t|t.level==max_level}.min_by(&:sum)
 		# binding.pry 
-		bottoms_up_dir(winner)
+		bottoms_up_dir(winner).dir
 	end
 
 	#############################
@@ -35,8 +35,10 @@ class Squirrel
 	#
 	def bfd_method
 		current_level = @tree.tree.level
-		winner = child_filter(@tree.tree.children, 0)
-		bottoms_up_dir(winner) 
+		winners = child_filter(@tree.tree.children, 0)
+		winner_sum =  winners.first.sum
+		tied_winners = winners.select{|w| w.sum ==winner_sum}.collect{|w| bottoms_up_dir(w)}
+		tied_winners.min_by(&:sum).dir
 	end
 
 	private 
@@ -52,13 +54,15 @@ class Squirrel
 			# end
 
 			if nodes_with_children.length == 0
-				return nodes.sort_by(&:sum).first
+				# binding.pry
+				return nodes.sort_by(&:sum)
 			else
 				children = nodes_with_children.collect(&:children).flatten.sort_by(&:sum)
 				# 
 				# Filter some out
 				#
-				surviving_children = children[0..3] 
+				threshold_index = threshold_calc(level: level+1, length: children.length )
+				surviving_children = children[0..threshold_index] 
 
 				child_filter(surviving_children, level+1)
 			end
@@ -70,8 +74,16 @@ class Squirrel
 
 	def bottoms_up_dir node
 		if node.parent.level == 0
-			return node.dir
+			return node
 		end
 		bottoms_up_dir(node.parent)
+	end
+
+	def threshold_calc level:, length: 
+		optimal_num_nodes = 3**level
+		if length < (optimal_num_nodes*Config::Tree::MIN_THRESHOLD).floor
+			return length
+		end
+		return (length*Config::Tree::THRESHOLD).floor
 	end
 end

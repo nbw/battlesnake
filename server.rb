@@ -53,39 +53,6 @@ get '/' do
   erb :"test"
 end
 
-get '/bind' do
-  # binding.pry
-  # bench = Benchmark.measure { 
-    g = Grid.new(
-      width: TEST_DATA[:width], 
-      height: TEST_DATA[:height],
-      me: TEST_DATA[:you],
-      snakes: TEST_DATA[:snakes].collect{|s| Snake.new(s)},
-      food: TEST_DATA[:food].collect{|f| Food.new(x:f[0], y:f[1])}
-    );
-    p = Painter.new(g)
-    p.paint
-    p.grid.print
-    t = Tree.new(p.grid)
-    t.build_tree
-
-    sq = Squirrel.new(tree: t)
-    sq.bottoms_up_method
-
-    # t = tb.tree
-    # binding.pry
-  # }
-
-  return { 
-    message: "Done bind.",
-    time: "#{Time.now}",
-    # bench: "#{(bench.total*1000).floor}ms",
-    # time_percent: "#{bench.total.round(2)*1000*100/200}%",
-    levels: Config::Tree::LEVELS,
-    nodes: t.count
-  }.to_json
-end
-
 post '/start' do
 
     # Example input
@@ -96,7 +63,7 @@ post '/start' do
     #   "game_id": "b1dadee8-a112-4e0e-afa2-2845cd1f21aa"
     # }
   	return {
-    	color: MODE == "B" ? "#FF0000" : "#00FF00",
+    	color: MODE == "B" ? "#1869DF" : "#00FF00",
     	head_url: "http://placecage.com/c/100/100",
     	name: (MODE == "B") ? "BFS" : "DFS",
     	taunt: "gorogorogoro"
@@ -164,11 +131,12 @@ post '/move' do
     snakes: req["snakes"].collect{|s| Snake.new(id: s["id"], coords: s["coords"], health: s["health_points"])},
     food: req["food"].collect{|f| Food.new(x:f[0], y:f[1])}
   )
-  g.print
+  # g.print
+
   #2. Paint that grid!
   p = Painter.new(g)
   p.paint
-  # p.grid.print
+  p.grid.print
 
   #3. Make a tree with the painted grid!
   t = Tree.new(p.grid)
@@ -179,17 +147,12 @@ post '/move' do
 
   case MODE
   when "D"
-    puts "DFS!"
     dir = sq.bottoms_up_method
   when "B"
-    puts "BFS!"
     dir = sq.bfd_method
   else
     dir = sq.bfd_method
   end
-
-
-  puts "\n Direction: '#{dir}'\n"
 
 	return {
   	move: dir,

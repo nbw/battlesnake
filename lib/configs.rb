@@ -8,31 +8,33 @@ end
 
 module PainterWallConstants
 	module Walls
-		DEGREE = 3
-		WEIGHT = 1
+		DEGREE = 10
+		WEIGHT = 0.25
 	end
 end
 
 module TreeConstants
 	module Tree
-		LEVELS = 4
+		LEVELS = 5
+		MIN_THRESHOLD = 0.3
+		THRESHOLD = 0.5
 	end
 end
 
 module SnakeConstants
 	module Snakes
 		module Me
-			BODY_DEGREE = 1
+			BODY_DEGREE = 2
 			BODY_WEIGHT = 1
 
 			HEAD_DEGREE = 0
 			HEAD_WEIGHT = -1
 		end
 		module Enemy
-			BODY_DEGREE = 3
+			BODY_DEGREE = 5
 			BODY_WEIGHT = 1
 
-			HEAD_DEGREE = 3
+			HEAD_DEGREE = 5
 			HEAD_WEIGHT = 2
 		end
 	end
@@ -41,7 +43,7 @@ end
 module FoodConstants
 	module Food
 		WEIGHT = -1
-		DEGREE = 10
+		DEGREE = 15
 		MULT = 2
 	end
 end
