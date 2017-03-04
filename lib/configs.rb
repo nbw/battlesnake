@@ -35,7 +35,7 @@ module SnakeConstants
 			BODY_WEIGHT = 1
 
 			HEAD_DEGREE = 7
-			HEAD_WEIGHT = 2
+			HEAD_WEIGHT = -5
 		end
 	end
 end
