@@ -2,12 +2,12 @@ class Grid
 	
 	attr_reader :area, :height, :width, :snakes, :me, :food
 
-	def initialize args
-		@height = args[:height]
-		@width = args[:width]
-		@food = args[:food] || []
-		@me = args[:me]
-		@snakes = args[:snakes] 
+	def initialize height:, width:, food:, me:, snakes:
+		@height = height
+		@width = width
+		@food = food
+		@me = me
+		@snakes = snakes
 		@area = make_area
 	end
 	
@@ -20,9 +20,9 @@ class Grid
 				if area[j][i].is_a? String
 					line += "  #{area[j][i]}  "
 				elsif area[j][i] >= 0
-					line += (area[j][i] == 0) ? '  0  ' : "  #{area[j][i]}  "
+					line += (area[j][i] == 0) ? '  0  ' : "  #{area[j][i].round(0)}  "
 				else
-					line += (area[j][i] == 0) ? '  0  ' : " #{area[j][i]}  "
+					line += (area[j][i] == 0) ? '  0  ' : " #{area[j][i].round(0)}  "
 				end
 			end
 			puts line + "  | \n\n"
@@ -49,7 +49,7 @@ class Grid
 
 		# checks if point (x,y) is within the bounds of the grid.
 	def my_snake
-		@snakes.find{|s| s.id = @me}
+		@snakes.find{|s| s.id == @me}
 	end
 
 	private
@@ -82,7 +82,7 @@ class Grid
 	# @returns [Array] grid
 	def add_food area
 		@food.each do |f|
-			area[f.x][f.y] = Config::FOOD
+			area[f.x][f.y] = -1
 		end
 		return area
 	end

@@ -15,7 +15,7 @@ end
 
 module TreeConstants
 	module Tree
-		LEVELS = 6
+		LEVELS = 4
 	end
 end
 
@@ -25,8 +25,8 @@ module SnakeConstants
 			BODY_DEGREE = 1
 			BODY_WEIGHT = 1
 
-			HEAD_DEGREE = 3
-			HEAD_WEIGHT = 1
+			HEAD_DEGREE = 0
+			HEAD_WEIGHT = -1
 		end
 		module Enemy
 			BODY_DEGREE = 3
@@ -41,7 +41,8 @@ end
 module FoodConstants
 	module Food
 		WEIGHT = -1
-		DEGREE = 4
+		DEGREE = 10
+		MULT = 2
 	end
 end
 

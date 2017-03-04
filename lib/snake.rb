@@ -1,11 +1,10 @@
 class Snake
-	attr_accessor :head, :body, :id
-	def initialize bs_snake
-		@head = Coordinate.new(bs_snake[:coords].first)
-		@body = bs_snake[:coords].collect{|c| Coordinate.new(c)}.drop(1)
-		@id = bs_snake[:id]
-		@health = bs_snake[:health_points]
-		# room to add direction in here too.
+	attr_accessor :head, :body, :id, :health
+	def initialize id:, coords:, health:
+		@head = Coordinate.new(coords.first)
+		@body = coords.collect{|c| Coordinate.new(c)}.drop(1)
+		@id = id
+		@health = health
 	end
 
 	def paintable_directions body_part

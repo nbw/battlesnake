@@ -5,28 +5,28 @@ class Painter
   	end
 
   	def paint grid = @grid #Grid class: grid, height, width
+  		paint_food
   		paint_walls
   		paint_snakes
-  		paint_food
   	end
 
   	private
 
-  	def paint_walls grid = @grid
+  	def paint_walls
   		degree = Config::Walls::DEGREE
   		weight = Config::Walls::WEIGHT
-  		height = grid.height
-  		width = grid.width
+  		height = @grid.height
+  		width = @grid.width
 
 	  	width.times do |x|
 	  		degree.times do |y|
 	  			#top side
-	  			if grid.area[x][y].is_a? Numeric
-	  				grid.area[x][y] += (degree-y)*weight
+	  			if @grid.area[x][y].is_a? Numeric
+	  				@grid.area[x][y] += (degree-y)*weight
 	  			end
 	  			# bottom side
-	  			if grid.area[x][height-1-y].is_a? Numeric
-	  				grid.area[x][height-1-y] += (degree-y)*weight
+	  			if @grid.area[x][height-1-y].is_a? Numeric
+	  				@grid.area[x][height-1-y] += (degree-y)*weight
 	  			end
 	  		end	
 	  	end
@@ -34,20 +34,20 @@ class Painter
 	  	height.times do |y|
 	  		degree.times do |x|
 	  			#left side
-	  			if grid.area[x][y].is_a? Numeric
-	  				grid.area[x][y] += (degree-x)*weight
+	  			if @grid.area[x][y].is_a? Numeric
+	  				@grid.area[x][y] += (degree-x)*weight
 	  			end
 	  			# right side
-	  			if grid.area[width-1-x][y].is_a? Numeric
-	  				grid.area[width-1-x][y] += (degree-x)*weight
+	  			if @grid.area[width-1-x][y].is_a? Numeric
+	  				@grid.area[width-1-x][y] += (degree-x)*weight
 	  			end
 	  		end	
 	  	end
   	end
 
-  	def paint_snakes grid = @grid
-  		grid.snakes.each do |snake|
-  			if snake.id == grid.me
+  	def paint_snakes
+  		@grid.snakes.each do |snake|
+  			if snake.id == @grid.me
   				configs = {
 					head_degree:Config::Snakes::Me::HEAD_DEGREE,
 					head_weight:Config::Snakes::Me::HEAD_WEIGHT,
@@ -66,13 +66,17 @@ class Painter
   		end
   	end
 
-  	def paint_food grid: @grid
-  		food = grid.food
+  	def paint_food
+  		health_mult = food_health_equation(@grid.my_snake.health/100.0)
+  		food = @grid.food
   		degree = Config::Food::DEGREE
-		weight = Config::Food::WEIGHT
-  		vectors = []
+		weight = Config::Food::WEIGHT * health_mult
+  		
+
   		food.each do |f|
+  			vectors = []
   			f_x, f_y = f.x, f.y
+  			@grid.area[f_x][f_y] += weight*(degree+1) # the food is actually a value too!
 			degree.times do |d|
 				["left","right","up","down","leftup","leftdown","rightup","rightdown"].each do |dir|
 					case dir
@@ -98,15 +102,15 @@ class Painter
 			vectors.each do |v|
 				x = f_x + v.dx
 				y = f_y + v.dy
-				if grid.within_bounds?(x, y) && (grid.area[x][y].is_a? Numeric)
-					grid.area[x][y] += v.val
+				if @grid.within_bounds?(x, y) && (@grid.area[x][y].is_a? Numeric)
+					@grid.area[x][y] += v.val
 				end
 			end
-			grid.area[f_x][f_y] = weight*(degree+1) # the food is actually a value too!
+			
 		end
   	end
 
-  	def paint_snake snake:, grid: @grid, configs:
+  	def paint_snake snake:, configs:
   		##############
   		# Head
   		##############
@@ -117,8 +121,8 @@ class Painter
   		head_vectors.each do |v|
 			x = snake.head.x + v.dx
 			y = snake.head.y + v.dy
-			if grid.traversable?(x,y)
-				grid.area[x][y] += v.val
+			if @grid.traversable?(x,y)
+				@grid.area[x][y] += v.val
 			end
 		end
 
@@ -136,8 +140,8 @@ class Painter
   			vectors.each do |v|
   				x = s_x + v.dx
   				y = s_y + v.dy
-  				if grid.traversable?(x,y)
-	  				grid.area[x][y] += v.val
+  				if @grid.traversable?(x,y)
+	  				@grid.area[x][y] += v.val
 	  			end
   			end
   		end
@@ -180,5 +184,9 @@ class Painter
 	  		vectors << PaintVector.new(dx:dx_mult*da, dy:dy_mult*db, val: val)
 	  	end
 	  	return vectors
+  	end
+
+  	def food_health_equation health_percent
+  		Config::Food::MULT*(Math.exp(-1*health_percent)-Math.exp(-1))/(1-Math.exp(-1)) + 1.0
   	end
 end
