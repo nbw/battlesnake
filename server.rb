@@ -136,7 +136,7 @@ post '/move' do
   #2. Paint that grid!
   p = Painter.new(g)
   p.paint
-  p.grid.print
+  # p.grid.print
 
   #3. Make a tree with the painted grid!
   t = Tree.new(p.grid)
