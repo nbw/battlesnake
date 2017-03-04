@@ -66,7 +66,7 @@ post '/start' do
     	color: MODE == "B" ? "#1869DF" : "#00FF00",
     	head_url: "http://placecage.com/c/100/100",
     	name: (MODE == "B") ? "BFS" : "DFS",
-    	taunt: "gorogorogoro"
+    	taunt: "ゴロゴロ"
   	}.to_json
 end
 
