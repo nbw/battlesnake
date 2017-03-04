@@ -32,10 +32,10 @@ module SnakeConstants
 		end
 		module Enemy
 			BODY_DEGREE = 5
-			BODY_WEIGHT = -1
+			BODY_WEIGHT = 1
 
 			HEAD_DEGREE = 7
-			HEAD_WEIGHT = -3
+			HEAD_WEIGHT = 2
 		end
 	end
 end
