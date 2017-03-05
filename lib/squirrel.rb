@@ -36,9 +36,27 @@ class Squirrel
 	def bfd_method
 		current_level = @tree.tree.level
 		winners = child_filter(@tree.tree.children, 0)
-		winner_sum =  winners.first.sum
-		tied_winners = winners.select{|w| w.sum ==winner_sum}.collect{|w| bottoms_up_dir(w)}
-		tied_winners.min_by(&:sum).dir
+		if winners.empty?
+			head = @tree.tree.coord
+			p_x, p_y = head.x, head.y
+			avail_dir = ['left','right','up','down']
+			avail_dir.each do |dir| 
+				case dir
+					when "up";    x = p_x; y = p_y - 1
+					when "down";  x = p_x; y = p_y + 1
+					when "left";  x = p_x - 1; y = p_y
+					when "right"; x = p_x + 1; y = p_y
+				end	
+				if @tree.grid.traversable?(x,y) 
+					return dir
+				end
+			end
+			return "left"
+		else
+			winner_sum =  winners.first.sum
+			tied_winners = winners.select{|w| w.sum ==winner_sum}.collect{|w| bottoms_up_dir(w)}
+			tied_winners.min_by(&:sum).dir
+		end
 	end
 
 	private 

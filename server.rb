@@ -63,7 +63,7 @@ post '/start' do
     # }
   	return {
     	color: MODE == "B" ? "#1869DF" : "#00FF00",
-    	head_url: "http://media.keepo.me/keepo.me-13214_main-1.jpg",
+    	head_url: "https://i.makeagif.com/media/9-26-2016/jFT1D0.gif",
     	name: "ゴロゴロ",
     	taunt: "swish",
       head_type: "sand-worm",
