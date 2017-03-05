@@ -43,7 +43,6 @@ class Squirrel
 
 	private 
 
-	# scans the children, ranks them, discards the rest
 	def child_filter nodes, level
 		
 		if (level >= 2)

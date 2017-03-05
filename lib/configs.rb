@@ -42,7 +42,7 @@ end
 
 module FoodConstants
 	module Food
-		WEIGHT = -1
+		WEIGHT = -2
 		DEGREE = 15
 		MULT = 2
 	end

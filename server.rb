@@ -63,9 +63,9 @@ post '/start' do
     # }
   	return {
     	color: MODE == "B" ? "#1869DF" : "#00FF00",
-    	head_url: "https://media.giphy.com/media/aTtX6MTPTTefe/giphy.gif",
+    	head_url: "http://img-comment-fun.9cache.com/media/az5REz/aBWXMV1K_700wa_0.gif",
     	name: "ゴロゴロ",
-    	taunt: "ゴロゴロ",
+    	taunt: "swish",
       head_type: "sand-worm",
       tail_type: "curled"
   	}.to_json
