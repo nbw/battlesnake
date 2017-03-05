@@ -54,7 +54,6 @@ get '/' do
 end
 
 post '/start' do
-
     # Example input
 
     # {
@@ -64,9 +63,11 @@ post '/start' do
     # }
   	return {
     	color: MODE == "B" ? "#1869DF" : "#00FF00",
-    	head_url: "http://placecage.com/c/100/100",
-    	name: (MODE == "B") ? "ゴロゴロ" : "DFS",
-    	taunt: "ゴロゴロ"
+    	head_url: "https://media.giphy.com/media/aTtX6MTPTTefe/giphy.gif",
+    	name: "ゴロゴロ",
+    	taunt: "ゴロゴロ",
+      head_type: "sand-worm",
+      tail_type: "curled"
   	}.to_json
 end
 
@@ -119,7 +120,6 @@ end
 #
 
 post '/move' do
-
   requestBody = request.body.read
   req = requestBody ? JSON.parse(requestBody) : {}
 
@@ -163,3 +163,4 @@ end
 post '/end' do
   return { message: 'Game over'}.to_json
 end
+

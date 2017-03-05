@@ -196,8 +196,6 @@ class Painter
   	end
 
   	def food_health_equation health_percent
-  		Config::Food::MULT*(Math.exp(-1*health_percent)-Math.exp(-1))/(1-Math.exp(-1)) + 1.0
-
   		Config::Food::MULT*(100*Math.exp(-4*health_percent)-Math.exp(-1))/(100-Math.exp(-1))+1.0
   	end
 end

@@ -9,7 +9,7 @@ end
 module PainterWallConstants
 	module Walls
 		DEGREE = 10
-		WEIGHT = 0.25
+		WEIGHT = 1
 	end
 end
 
