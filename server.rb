@@ -63,7 +63,7 @@ post '/start' do
     # }
   	return {
     	color: MODE == "B" ? "#1869DF" : "#00FF00",
-    	head_url: "http://img-comment-fun.9cache.com/media/az5REz/aBWXMV1K_700wa_0.gif",
+    	head_url: "http://media.keepo.me/keepo.me-13214_main-1.jpg",
     	name: "ゴロゴロ",
     	taunt: "swish",
       head_type: "sand-worm",

@@ -8,7 +8,7 @@ end
 
 module PainterWallConstants
 	module Walls
-		DEGREE = 10
+		DEGREE = 7
 		WEIGHT = 1
 	end
 end
@@ -17,7 +17,7 @@ module TreeConstants
 	module Tree
 		LEVELS = 5
 		MIN_THRESHOLD = 0.3
-		THRESHOLD = 0.5
+		THRESHOLD = 0.6
 	end
 end
 
@@ -43,7 +43,7 @@ end
 module FoodConstants
 	module Food
 		WEIGHT = -2
-		DEGREE = 15
+		DEGREE = 20
 		MULT = 2
 	end
 end
