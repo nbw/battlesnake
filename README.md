@@ -1,4 +1,4 @@
-![battlesnake](./screenshots/battlesnake.jpg)
+![battlesnake](./screenshots/battlesnake_1.jpg)
 # BattleSnake 2017
 
 In 2017, I competed in Victoria's annual <a href="https://github.com/sendwithus/battlesnake">BattleSnake</a> competition in which competitors play the classic arcade game of snake: You have a snake and if you eat food then you get longer. The caveat of BattleSnake is there are other snakes on the board at the same time and your health decreases over time -- so you need to eat!
