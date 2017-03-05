@@ -28,7 +28,7 @@ My initial thinking was that the strength of the method would be directly propor
 
 I ended up winning my qualifier and moving to the semifinals automatically, but I came second in the semi's and didn't move onto the finals (so close!). 
 
-<h3 style="text-align: center;"><a href="https://www.youtube.com/watch?v=_snSnHx6Irg">Click for video of qualifier</a></h3>
+<h3><a href="https://www.youtube.com/watch?v=_snSnHx6Irg">Click for video.</a></h3>
 
 ### Surprises: 
 
@@ -42,7 +42,8 @@ This part is pretty straight forward. I'd receive data on the width and height o
 
 Here's a visual way of understanding it:
 
-[ PICTURE HERE ]
+![grid](../screenshots/grid.png)
+
 
 ### 2. Painting the Grid (`painter.rb`)
 
