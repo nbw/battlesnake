@@ -90,6 +90,8 @@ Each node contained:
 * The direction that was taken to reach it
 * It's value on the painted grid
 * The sum of all the values of nodes leading up to it
+* A reference to it's parent
+* An array of children
 
 ### 4. Find a Squirrel to Traverse the Tree (`squirrel.rb`)
 
