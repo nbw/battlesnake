@@ -24,7 +24,7 @@ There are four main parts to my approach:
 
 ### Conclusions:
 
-My initial thinking was that the strength of the method would be directly proportional to the depth of the tree (#3). However, because there was an inforced resposne time of 200 ms, it simply was too costly to increase the depth (each level would mean 3^n more possible nodes, i.e: 1,3,9,27,81,243,729, 2187). Adding another level to the tree became too unweildly and it wasn't realistic given the constraints. The reality was, *the "painting of the grid" (#2) was by far the most important part.** If done correctly, I could ensure that my tree, no matter how many levels it had, would be influenced by all objects on the grid. 
+My initial thinking was that the strength of the method would be directly proportional to the depth of the tree (#3). However, because there was an inforced resposne time of 200 ms, it simply was too costly to increase the depth (each level would mean 3^n more possible nodes, i.e: 1,3,9,27,81,243,729, 2187). Adding another level to the tree became too unweildly and it wasn't realistic given the constraints. The reality was, **the "painting of the grid" (#2) was by far the most important part.** If done correctly, I could ensure that my tree, no matter how many levels it had, would be influenced by all objects on the grid. 
 
 ### Surprises: 
 
