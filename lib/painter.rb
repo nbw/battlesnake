@@ -62,7 +62,6 @@ class Painter
   				else
   					length_weight = 0.6*log(length_ratio)+1
   				end
-  				puts "Length weight: #{length_weight}"
 				configs = {
 					head_degree:Config::Snakes::Enemy::HEAD_DEGREE,
 					head_weight:Config::Snakes::Enemy::HEAD_WEIGHT,

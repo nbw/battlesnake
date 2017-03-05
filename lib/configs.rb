@@ -27,7 +27,7 @@ module SnakeConstants
 			BODY_DEGREE = 2
 			BODY_WEIGHT = 1
 
-			HEAD_DEGREE = 0
+			HEAD_DEGREE = 2
 			HEAD_WEIGHT = -1
 		end
 		module Enemy

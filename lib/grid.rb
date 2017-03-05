@@ -12,22 +12,22 @@ class Grid
 	end
 	
 	def print area = @area
-		puts "\n\n" + " -   "*(@width + 2)
+		puts "\n\n" + "  -   "*(@width + 2)
 		print_lines = Array.new(@height)
 		@height.times do |i|
 			line = " |  "
 			@width.times do |j|
 				if area[j][i].is_a? String
-					line += "  #{area[j][i]}  "
+					line += "   #{area[j][i]}  "
 				elsif area[j][i] >= 0
-					line += (area[j][i] == 0) ? '  0  ' : "  #{area[j][i].round(0)}  "
+					line += (area[j][i] == 0) ? '  .  ' : ((area[j][i] > 9) ? "  #{area[j][i].round(0)}  " : "   #{area[j][i].round(0)}  ")
 				else
-					line += (area[j][i] == 0) ? '  0  ' : " #{area[j][i].round(0)}  "
+					line += (area[j][i] == 0) ? '  .  ' : ((area[j][i] < -9) ? "  #{area[j][i].round(0)} " : "  #{area[j][i].round(0)}  ")
 				end
 			end
 			puts line + "  | \n\n"
 		end	
-		puts " -   "*(@width + 2)
+		puts "  -   "*(@width + 2)
 		puts "\nWidth: #{@width} - Height: #{@height}\n\n"
 	end
 
@@ -82,7 +82,7 @@ class Grid
 	# @returns [Array] grid
 	def add_food area
 		@food.each do |f|
-			area[f.x][f.y] = -1
+			area[f.x][f.y] = -1 #Config::FOOD
 		end
 		return area
 	end

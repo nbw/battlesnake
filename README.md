@@ -26,6 +26,10 @@ There are four main parts to my approach:
 
 My initial thinking was that the strength of the method would be directly proportional to the depth of the tree (#3). However, because there was an inforced resposne time of 200 ms, it simply was too costly to increase the depth (each level would mean 3^n more possible nodes, i.e: 1,3,9,27,81,243,729, 2187). Adding another level to the tree became too unweildly and it wasn't realistic given the constraints. The reality was, **the "painting of the grid" (#2) was by far the most important part.** If done correctly, I could ensure that my tree, no matter how many levels it had, would be influenced by all objects on the grid. 
 
+I ended up winning my qualifier and moving to the semifinals automatically, but I came second in the semi's and didn't move onto the finals (so close!). 
+
+<h3 style="text-align: center;"><a href="https://www.youtube.com/watch?v=_snSnHx6Irg">Click for video of qualifier</a></h3>
+
 ### Surprises: 
 
 With the way I built my snake, using varying degree and weighting config variables (`config.rb`), it meant that I could easily make my snake more aggressive by making enemy snakes "more attractive". Having these config variables meant my algorithm was easily tunable for a specific scenario, which came in handy for some of the special bounty rounds during the day. 
