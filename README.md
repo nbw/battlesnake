@@ -70,7 +70,7 @@ My thinking: There are two scenarios to consider: enemy snakes and my snake
 
 #### Painting the Food
 
-* The importance of food was weighted inverse proportionately to how much life my snake had. That is to say, the lower my health, the more influence food had and the more likely I was to pursue it. I wrote an equation that exponentially increased as my percentage of health went from 100% to 0. 
+The importance of food was weighted inverse proportionately to how much life my snake had. That is to say, the lower my health, the more influence food had and the more likely I was to pursue it. I wrote an equation that exponentially increased as my percentage of health went from 100% to 0. 
 
 ### 3. Building the Tree of possible paths (`tree.rb`)
 
@@ -125,6 +125,19 @@ So as an example:
 
 On the 3rd level of my tree I have 27 nodes. I rank them by their sum and if they have children (remember, longer paths are better so we want them to have children). After ranking them, I take the top 60% and disregard the rest. Of the 60% that I kept, I collect their children and do the same. 
 
+
+### Improvements
+
+* The way food is "painted" is not ideal. What would be better is some sort of ray tracing, like an A* algorithm. The issue right now is the influence of food passes through snakes, which means my snake might sometime turn in on itself thinking it's the best path. 
+
+* Genetic learning algorithm, those constants in my config.rb could easily be trained. 
+
+* Enemy-in-corner detection so that I could cut them off. 
+
+### Thanks
+
+* To everyone who made the event happen!
+* To Matt, R. Selk, and anyone else who gave me advice.
 
 
 
