@@ -54,6 +54,7 @@ This part was surprisingly the most important. Each item on the grid was given a
 
 ##### Snakes
 ![snakes](./screenshots/snakes.png)
+(enemy snake in top left; my snake bottom right)
 
 ##### Food
 ![food](./screenshots/food.png)
@@ -69,11 +70,11 @@ This part was surprisingly the most important. Each item on the grid was given a
 
 Each object has a radius of effect. What I realized is that all I need to do is make sure that radius extends to somewhere near the vacinity of my snake. That way, when I build a tree then all the objects would have an influence - my snake would feel the gravity of all the snakes/foods/walls on the field. 
 
-#### Painting the Walls
+### Painting the Walls
 
 My thinking: Walls are dangerous. If you run into one then you die. It's better to stay farther away from them if you can. 
 
-#### Painting the Snakes
+### Painting the Snakes
 
 My thinking: There are two scenarios to consider: enemy snakes and my snake
 
@@ -83,11 +84,11 @@ My thinking: There are two scenarios to consider: enemy snakes and my snake
 
 **Important detail**: If one snake runs into another snake, then the larger of the two wins. If they're the same size then they both die. To account for that, based on a ratio of how much bigger or smaller an enemy snake was to mine, I painted around enemy snakes dynamically based on threat level. Specifically, if the snake and my snake are the same size the ratio was 1:1, if the enemy was bigger then the danger lavel would be between 1-2 times more than normal, if they were smaller then down to 0.8 of the normal danger level.  It wasn't a ton of influence, but it still counts. 
 
-#### Painting the Food
+### Painting the Food
 
 The importance of food was weighted inverse proportionately to how much life my snake had. That is to say, the lower my health, the more influence food had and the more likely I was to pursue it. I wrote an equation that exponentially increased as my percentage of health went from 100% to 0. 
 
-![graph](./screenshots/graph.jpg)
+![graph](./screenshots/graph.png)
 (the equation I used)
 
 ### 3. Building the Tree of possible paths (`tree.rb`)
@@ -153,6 +154,11 @@ On the 3rd level of my tree I have 27 nodes. I rank them by their sum and if the
 * Genetic learning algorithm, those constants in my config.rb could easily be trained. 
 
 * Enemy-in-corner detection so that I could cut them off. 
+
+* Optimizing speed
+
+* There are so many other ideas that I have, but I won't list them all here.
+
 
 ## Thanks
 
