@@ -49,13 +49,23 @@ Here's a visual way of understanding it:
 
 This part was surprisingly the most important. Each item on the grid was given a certain importance (config variables that I defined) and I "painted" the grid to reflect that. It's easier to see it visually first, I think:
 
-[ GRID NON PAINTED]
+##### Walls
+![grid](./screenshots/walls.png)
 
-[ GRID WITH WALLS PAINTED ]
+##### Snakes
+![snakes](./screenshots/snakes.png)
 
-[ GRID WITH SNAKES PAINTED ]
+##### Food
+![food](./screenshots/food.png)
 
-[ FOOD PAINTED ]
+##### Combined
+![combined](./screenshots/combined.png)
+
+##### Combined with real config params
+![combined_r](./screenshots/combined_real.png)
+
+##### Combined with realistic float values
+![combined_r_d](./screenshots/combined_real_decimal.png)
 
 Each object has a radius of effect. What I realized is that all I need to do is make sure that radius extends to somewhere near the vacinity of my snake. That way, when I build a tree then all the objects would have an influence - my snake would feel the gravity of all the snakes/foods/walls on the field. 
 
@@ -77,11 +87,14 @@ My thinking: There are two scenarios to consider: enemy snakes and my snake
 
 The importance of food was weighted inverse proportionately to how much life my snake had. That is to say, the lower my health, the more influence food had and the more likely I was to pursue it. I wrote an equation that exponentially increased as my percentage of health went from 100% to 0. 
 
+![graph](./screenshots/graph.jpg)
+(the equation I used)
+
 ### 3. Building the Tree of possible paths (`tree.rb`)
 
 I did this recursively starting from the head of my snake. The level of the tree was defined in a config variable. 
 
-[Picture of tree]
+![tree](./screenshots/tree.jpg)
 
 Things I took into account were: 
 * Paths that didn't overlap themselves (i.e. one that went in circles)
