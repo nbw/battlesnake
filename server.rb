@@ -63,7 +63,7 @@ post '/start' do
     # }
   	return {
     	color: MODE == "B" ? "#1869DF" : "#00FF00",
-    	head_url: "https://i.makeagif.com/media/9-26-2016/jFT1D0.gif",
+    	head_url: "http://www.feedrazzi.com/wp-content/uploads/2016/09/UVPAcWGcK.jpg",
     	name: "G O R O G O R O",
     	taunt: "ゴロゴロ",
       head_type: "sand-worm",
