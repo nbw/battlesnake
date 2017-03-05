@@ -126,7 +126,7 @@ So as an example:
 On the 3rd level of my tree I have 27 nodes. I rank them by their sum and if they have children (remember, longer paths are better so we want them to have children). After ranking them, I take the top 60% and disregard the rest. Of the 60% that I kept, I collect their children and do the same. 
 
 
-### Improvements
+## Improvements
 
 * The way food is "painted" is not ideal. What would be better is some sort of ray tracing, like an A* algorithm. The issue right now is the influence of food passes through snakes, which means my snake might sometime turn in on itself thinking it's the best path. 
 
@@ -134,7 +134,7 @@ On the 3rd level of my tree I have 27 nodes. I rank them by their sum and if the
 
 * Enemy-in-corner detection so that I could cut them off. 
 
-### Thanks
+## Thanks
 
 * To everyone who made the event happen!
 * To Matt, R. Selk, and anyone else who gave me advice.
