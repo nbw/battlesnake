@@ -42,7 +42,7 @@ This part is pretty straight forward. I'd receive data on the width and height o
 
 Here's a visual way of understanding it:
 
-![grid](../screenshots/grid.png)
+![grid](./screenshots/grid.png)
 
 
 ### 2. Painting the Grid (`painter.rb`)
