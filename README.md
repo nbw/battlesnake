@@ -1,8 +1,8 @@
 # BattleSnake 2017
 
-In 2017, I competed in Victoria's annual BattleSnake competition in which competitors play the classic arcade game of snake: You have a snake and if you eat food then you get longer. The caveat of BattleSnake is there are other snakes on the board at the same time and your health decreases over time -- so you need to eat!
+In 2017, I competed in Victoria's annual <a href="https://github.com/sendwithus/battlesnake">BattleSnake</a> competition in which competitors play the classic arcade game of snake: You have a snake and if you eat food then you get longer. The caveat of BattleSnake is there are other snakes on the board at the same time and your health decreases over time -- so you need to eat!
 
-How it works: Players are given the state of the grid (where the snakes are, where the food is) each turn and are asked to simply respond with the direction they'd like to move their snake. 
+**How it works:** Players are given the state of the grid (where the snakes are, where the food is) each turn and are asked to simply respond with the direction they'd like to move their snake. 
 
 ## Constraints: 
 
