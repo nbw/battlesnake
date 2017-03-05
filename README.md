@@ -19,7 +19,7 @@ There are four main parts to my approach:
 
 3. Build a **Tree**: Starting with the head of my snake as the top node, construct a tree that documents the possible paths the snake can more.
 
-4. Hire a **Squirrel**: Traverse the tree you've build and determine the best path to take. 
+4. Hire a **Squirrel**: Traverse the tree you've built and determine the best path to take. 
 
 
 ### Conclusions:
