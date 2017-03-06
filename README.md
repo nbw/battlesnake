@@ -16,7 +16,7 @@ There are four main parts to my approach:
 
 1.  **Grid**: Make a grid layout of the current state of the game that I can interpret. 
 
-2. **Paint** The grid: With the grid layout defined (#1), assign weighted values on the grid based on importance of different objects: food, enemy snakes, my snake, and walls.
+2. **Paint** the grid: With the grid layout defined (#1), assign weighted values on the grid based on importance of different objects: food, enemy snakes, my snake, and walls.
 
 3. Build a **Tree**: Starting with the head of my snake as the top node, construct a tree that documents the possible paths the snake can more.
 
