@@ -1,9 +1,9 @@
 ![battlesnake](./screenshots/battlesnake_1.jpg)
 # BattleSnake 2017
 
-In 2017, I competed in Victoria's annual <a href="https://github.com/sendwithus/battlesnake">BattleSnake</a> competition in which competitors play the classic arcade game of snake: You have a snake and if you eat food then you get longer. The caveat of BattleSnake is there are other snakes on the board at the same time and your health decreases over time -- so you need to eat!
+In 2017, I competed in Victoria's annual <a href="https://github.com/sendwithus/battlesnake">BattleSnake</a> competition in which competitors play the classic arcade game of snake: you have a snake and if you eat food then it becomes get longer. The caveat of BattleSnake is there are other snakes on the board at the same time and your health decreases over time -- so you need to eat!
 
-**How it works:** Players are given the state of the grid (where the snakes are, where the food is) each turn and are asked to simply respond with the direction they'd like to move their snake. 
+**How it works:** Players are given the state of the grid (where the snakes are, where the food is) each turn and are asked to simply respond with the direction they'd like their snake to move. 
 
 ## Constraints: 
 
@@ -25,7 +25,7 @@ There are four main parts to my approach:
 
 ### Conclusions:
 
-My initial thinking was that the strength of the method would be directly proportional to the depth of the tree (#3). However, because there was an inforced resposne time of 200 ms, it simply was too costly to increase the depth (each level would mean 3^n more possible nodes, i.e: 1,3,9,27,81,243,729, 2187). Adding another level to the tree became too unweildly and it wasn't realistic given the constraints. The reality was, **the "painting of the grid" (#2) was by far the most important part.** If done correctly, I could ensure that my tree, no matter how many levels it had, would be influenced by all objects on the grid. 
+My initial thinking was that the strength of the method would be directly proportional to the depth of the tree (#3). However, because there was an inforced response time of 200 ms, it simply was too costly to increase the depth (each level would mean 3^n more possible nodes, i.e: 1,3,9,27,81,243,729, 2187). Adding another level to the tree became too unweildly and it wasn't realistic given the constraints. The reality was, **the "painting of the grid" (#2) was by far the most important part.** If done correctly, I could ensure that my tree, no matter how many levels it had, would be influenced by all objects on the grid. 
 
 I ended up winning my qualifier and moving to the semifinals automatically, but I came second in the semi's and didn't move onto the finals (so close!). 
 
@@ -92,7 +92,7 @@ The importance of food was weighted inverse proportionately to how much life my 
 ![graph](./screenshots/graph.png)
 (the equation I used)
 
-### 3. Building the Tree of possible paths (`tree.rb`)
+### 3. Building the Tree of Possible Paths (`tree.rb`)
 
 I did this recursively starting from the head of my snake. The level of the tree was defined in a config variable. 
 
@@ -102,7 +102,7 @@ Things I took into account were:
 * Paths that didn't overlap themselves (i.e. one that went in circles)
 * Some paths ended early because there's no where to move next so you can't assume that, for LEVEL = N, all paths will have N nodes. 
 
-#### My nodes
+#### My Nodes
 
 Each node contained:
 
@@ -125,7 +125,7 @@ I implemented two basic traversal methods:
 
 This was actually quite easy. 
 
-1. When making my tree, I kept track an array of all the "path end nodes" of a path (i.e. nodes that had no where else to move or nodes with LEVEL = N, where N was what I defined as my max tree depth). Since I had all of my "path end nodes", I selected all the ones with the highest level (for example if I had some nodes with level 5, 4, 3, etc. then I looked at only the ones with level 5), which made the assumption that longer paths are better, regardless. 
+1. When making my tree, I kept track an array of all the "end nodes" of a path (i.e. nodes that had no where else to move or nodes with LEVEL = N, where N was what I defined as my max tree depth). Since I had all of my "path end nodes", I selected all the ones with the highest level (for example if I had some nodes with level 5, 4, 3, etc. then I looked at only the ones with level 5), which made the assumption that longer paths are better, regardless. 
 
 2. Then of those nodes, I selected the lowest sum. 
 
@@ -155,6 +155,8 @@ On the 3rd level of my tree I have 27 nodes. I rank them by their sum and if the
 * Genetic learning algorithm, those constants in my config.rb could easily be trained. 
 
 * Enemy-in-corner detection so that I could cut them off. 
+
+* Make Enemy heads attractive if my snake is bigger then theirs so that I could eat them
 
 * Optimizing speed
 
