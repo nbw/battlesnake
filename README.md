@@ -29,7 +29,8 @@ My initial thinking was that the strength of the method would be directly propor
 
 I ended up winning my qualifier and moving to the semifinals automatically, but I came second in the semi's and didn't move onto the finals (so close!). 
 
-<h3><a href="https://www.youtube.com/watch?v=_snSnHx6Irg">Click for video.</a></h3>
+##### Video (click to open on YouTube)
+[![Click for video](./screenshots/video_thumbnail.png)](https://www.youtube.com/watch?v=_snSnHx6Irg)
 
 ### Surprises: 
 
