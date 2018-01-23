@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 source "http://gems.github.com"
 
-ruby '2.2.5'
+ruby '2.3.0'
 
 gem 'sinatra'
 gem 'sinatra-reloader'

@@ -78,7 +78,7 @@ class Painter
   		health_mult = food_health_equation(@grid.my_snake.health/100.0)
   		food = @grid.food
   		degree = Config::Food::DEGREE
-		weight = Config::Food::WEIGHT * health_mult
+      weight = Config::Food::WEIGHT * health_mult
   		
 
   		food.each do |f|

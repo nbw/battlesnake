@@ -20,9 +20,9 @@ class Grid
 				if area[j][i].is_a? String
 					line += "   #{area[j][i]}  "
 				elsif area[j][i] >= 0
-					line += (area[j][i] == 0) ? '  .  ' : ((area[j][i] > 9) ? "  #{area[j][i].round(0)}  " : "   #{area[j][i].round(0)}  ")
+					line += (area[j][i] == 0) ? '   .  ' : ((area[j][i] > 9) ? "  #{area[j][i].round(0)}  " : "   #{area[j][i].round(0)}  ")
 				else
-					line += (area[j][i] == 0) ? '  .  ' : ((area[j][i] < -9) ? "  #{area[j][i].round(0)} " : "  #{area[j][i].round(0)}  ")
+					line += (area[j][i] == 0) ? '   .  ' : ((area[j][i] < -9) ? "  #{area[j][i].round(0)} " : "  #{area[j][i].round(0)}  ")
 				end
 			end
 			puts line + "  | \n\n"

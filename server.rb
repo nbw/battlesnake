@@ -62,7 +62,7 @@ post '/start' do
     #   "game_id": "b1dadee8-a112-4e0e-afa2-2845cd1f21aa"
     # }
   	return {
-    	color: MODE == "B" ? "#1869DF" : "#00FF00",
+    	color: MODE == "B" ? "#1869DF" : "#fc1047",
     	head_url: "http://www.feedrazzi.com/wp-content/uploads/2016/09/UVPAcWGcK.jpg",
     	name: "G O R O G O R O",
     	taunt: "ゴロゴロ",
@@ -121,15 +121,15 @@ end
 
 post '/move' do
   requestBody = request.body.read
-  req = requestBody ? JSON.parse(requestBody) : {}
-
+  parser = Parser.new(body: requestBody) 
+  
   #1. Make a grid!
   g = Grid.new(
-    width: req["width"], 
-    height: req["height"],
-    me: req["you"],
-    snakes: req["snakes"].collect{|s| Snake.new(id: s["id"], coords: s["coords"], health: s["health_points"])},
-    food: req["food"].collect{|f| Food.new(x:f[0], y:f[1])}
+    width: parser.width, 
+    height: parser.height,
+    me: parser.you,
+    snakes: parser.snakes.collect{|s| Snake.new(id: s["id"], coords: s["body"]["data"], health: s["health"])},
+    food: parser.food.collect{|f| Food.new(x:f[0], y:f[1])}
   )
   # g.print
 

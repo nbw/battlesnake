@@ -31,11 +31,11 @@ class Tree
 					when "left";  x = p_x - 1; y = p_y
 					when "right"; x = p_x + 1; y = p_y
 				end		
-				if @grid.traversable?(x,y) && !current_path.include?(Coordinate.new([x,y]))
+				if @grid.traversable?(x,y) && !current_path.include?(Coordinate.new({"x"=> x, "y"=>y}))
 					child = Snode.new(
 						parent: parent,
 						dir: dir,
-						coord: Coordinate.new([x,y]),  
+						coord: Coordinate.new({"x"=> x, "y"=>y}),  
 						val: grid.area[x][y], 
 						sum: parent.sum + grid.area[x][y], 
 						level: parent.level+1
@@ -43,7 +43,7 @@ class Tree
 					parent.children << child
 					@count += 1
 					add_node(child)
-				elsif !@grid.traversable?(x,y) || current_path.include?(Coordinate.new([x,y]))
+				elsif !@grid.traversable?(x,y) || current_path.include?(Coordinate.new({"x"=> x, "y"=>y}))
 					tried_dir << dir
 				end
 			end
