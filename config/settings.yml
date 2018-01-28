@@ -1,0 +1,36 @@
+my_snake:
+  name: <%= ENV['NAME'] || "G O R O G O R O" %>
+  st_method: <%= ENV['ST_METHOD'] || "B" %>
+grid:
+  enemy_head: "▓"
+  enemy_body: "█"
+  me_head: "▒"
+  me_body: "█"
+  food: "♥"
+wall:
+  degree: <%= ENV['WALL_DEGREE'] || "7" %>
+  weight: <%= ENV['WALL_WEIGHT'] || "1" %> 
+tree:
+  levels: <%= ENV['TREE_LEVELS'] || "5" %>
+  min_threshold: <%= ENV['TREE_MIN_THRESHOLD'] || "0.5" %>
+  threshold: <%= ENV['TREE_THRESHOLD'] || "0.6" %>
+snake:
+  me:
+    body:
+      degree: <%= ENV['SNAKE_MY_BODY_DEGREE'] || "2" %>
+      weight: <%= ENV['SNAKE_MY_BODY_WEIGHT'] || "1" %>
+    head:
+      degree: <%= ENV['SNAKE_MY_BODY_DEGREE'] || "2" %>
+      weight: <%= ENV['SNAKE_MY_BODY_WEIGHT'] || "-1" %>
+  enemy:
+    body:
+      degree: <%= ENV['SNAKE_ENEMY_BODY_DEGREE'] || "5" %>
+      weight: <%= ENV['SNAKE_ENEMY_BODY_WEIGHT'] || "1" %>
+    head:
+      degree: <%= ENV['SNAKE_ENEMY_BODY_DEGREE'] || "10" %>
+      weight: <%= ENV['SNAKE_ENEMY_BODY_WEIGHT'] || "2" %>
+    length_weight: <%= ENV['SNAKE_ENEMY_LENGTH_WEIGHT'] || "0.6" %>
+food: 
+  mult: <%= ENV['FOOD_MULT'] || "2" %>
+  weight: <%= ENV['FOOD_MULT'] || "-2" %>
+  degree: <%= ENV['FOOD_MULT'] || "20" %>

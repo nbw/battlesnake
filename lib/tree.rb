@@ -6,6 +6,7 @@ class Tree
 		@tree = nil
 		@count = 1
 		@tree_bottom = []
+    @levels = ::Settings.get("tree","levels")
 	end
 	def build_tree
 		head = @grid.my_snake.head
@@ -13,7 +14,7 @@ class Tree
 		add_node(@tree)
 	end
 	def add_node parent	
-		if parent.level >= Config::Tree::LEVELS
+		if parent.level >= @levels
 			@tree_bottom << parent
 			return
 		else

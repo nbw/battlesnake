@@ -1,7 +1,9 @@
 class Squirrel
 	def initialize tree:
 		@tree = tree
-		@bfd
+    @levels         = ::Settings.get("tree","levels")
+    @min_threshold  = ::Settings.get("tree","min_threshold")
+    @threshold      = ::Settings.get("tree","threshold")
 	end
 
 	#######################
@@ -71,7 +73,6 @@ class Squirrel
 			# end
 
 			if nodes_with_children.length == 0
-				# binding.pry
 				return nodes.sort_by(&:sum)
 			else
 				children = nodes_with_children.collect(&:children).flatten.sort_by(&:sum)
@@ -96,11 +97,12 @@ class Squirrel
 		bottoms_up_dir(node.parent)
 	end
 
+  # Used to filter our a certain percentage of nodes
 	def threshold_calc level:, length: 
 		optimal_num_nodes = 3**level
-		if length < (optimal_num_nodes*Config::Tree::MIN_THRESHOLD).floor
+		if length < (optimal_num_nodes*@min_threshold).floor
 			return length
 		end
-		return (length*Config::Tree::THRESHOLD).floor
+		return (optimal_num_nodes*@threshold).floor
 	end
 end

@@ -69,9 +69,9 @@ class Grid
 		@snakes.each do |snake|
 			me = (snake.id == @me)
 			snake.body.each do |b|
-				area[b.x][b.y] = me ? Config::ME_BODY : Config::ENEMY_BODY 
+				area[b.x][b.y] = me ? Settings.get("grid","me_body") : Settings.get("grid","enemy_body") 
 			end
-			area[snake.head.x][snake.head.y] = me ? Config::ME_HEAD : Config::ENEMY_HEAD
+			area[snake.head.x][snake.head.y] = me ? Settings.get("grid","me_head") : Settings.grid("grid","enemy_head")
 		end
 		return area
 	end
