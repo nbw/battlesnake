@@ -71,7 +71,7 @@ class Grid
 			snake.body.each do |b|
 				area[b.x][b.y] = me ? Settings.get("grid","me_body") : Settings.get("grid","enemy_body") 
 			end
-			area[snake.head.x][snake.head.y] = me ? Settings.get("grid","me_head") : Settings.grid("grid","enemy_head")
+			area[snake.head.x][snake.head.y] = me ? Settings.get("grid","me_head") : Settings.get("grid","enemy_head")
 		end
 		return area
 	end

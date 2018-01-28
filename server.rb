@@ -15,9 +15,9 @@ set :public_folder, File.dirname(__FILE__) + '/public'
 set :views, File.dirname(__FILE__) + '/public'
 
 MODE = Settings.get("my_snake","st_method") # default Breadth first
+DEV = development?
 
 get '/' do
-  binding.pry
   erb :"test"
 end
 
@@ -72,7 +72,7 @@ post '/move' do
   #2. Paint that grid!
   p = Painter.new(g)
   p.paint
-  p.grid.print
+  p.grid.print if DEV
 
   #3. Make a tree with the painted grid!
   t = Tree.new(p.grid)
