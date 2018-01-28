@@ -32,5 +32,5 @@ snake:
     length_weight: <%= ENV['SNAKE_ENEMY_LENGTH_WEIGHT'] || "0.6" %>
 food: 
   mult: <%= ENV['FOOD_MULT'] || "2" %>
-  weight: <%= ENV['FOOD_MULT'] || "-2" %>
-  degree: <%= ENV['FOOD_MULT'] || "20" %>
+  weight: <%= ENV['FOOD_WEIGHT'] || "-2" %>
+  degree: <%= ENV['FOOD_DEGREE'] || "20" %>
