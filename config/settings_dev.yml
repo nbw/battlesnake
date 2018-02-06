@@ -1,7 +1,7 @@
 my_snake:
   name: "G O R O G O R O"
   st_method: "B"
-  color: "#ff6666"
+  color: "ff6666"
 grid:
   enemy_head: "▓"
   enemy_body: "█"
