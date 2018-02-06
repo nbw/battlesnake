@@ -2,6 +2,8 @@ my_snake:
   name: "G O R O G O R O"
   st_method: "B"
   color: "ff6666"
+  head_type: "pixel"
+  tail_type: "pixel"
 grid:
   enemy_head: "▓"
   enemy_body: "█"

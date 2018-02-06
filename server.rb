@@ -36,8 +36,8 @@ post '/start' do
     	head_url: "http://www.feedrazzi.com/wp-content/uploads/2016/09/UVPAcWGcK.jpg",
       name: Settings.get("my_snake","name"),
     	taunt: "ゴロゴロ",
-      head_type: "sand-worm",
-      tail_type: "curled"
+      head_type: Settings.get("my_snake", "head_type"),
+      tail_type: Settings.get("my_snake", "tail_type")
   	}
     return res.to_json
 end
