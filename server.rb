@@ -42,6 +42,18 @@ post '/start' do
     return res.to_json
 end
 
+get '/start' do
+  	res = {
+    	color: Settings.get("my_snake", "color"),
+    	head_url: "http://www.feedrazzi.com/wp-content/uploads/2016/09/UVPAcWGcK.jpg",
+      name: Settings.get("my_snake","name"),
+    	taunt: "ゴロゴロ",
+      head_type: "sand-worm",
+      tail_type: "curled"
+  	}
+    return res.to_json
+end
+
 # Calculates the next move of my snake!
 #
 # @param Request
