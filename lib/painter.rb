@@ -77,7 +77,7 @@ class Painter
   def paint_food
     health_mult = food_health_equation(@grid.my_snake.health/100.0)
     food = @grid.food
-    degree = Settings.get("food","degree"),
+    degree = Settings.get("food","degree")
     weight = Settings.get("food","weight") * health_mult
 
     food.each do |f|
