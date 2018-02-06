@@ -80,10 +80,10 @@ class Painter
     degree = Settings.get("food","degree"),
     weight = Settings.get("food","weight") * health_mult
 
-
     food.each do |f|
       vectors = []
       f_x, f_y = f.x, f.y
+
       @grid.area[f_x][f_y] += weight*(degree+1) # the food is actually a value too!
       degree.times do |d|
         ["left","right","up","down","leftup","leftdown","rightup","rightdown"].each do |dir|

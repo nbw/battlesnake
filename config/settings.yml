@@ -1,6 +1,6 @@
 my_snake:
-  name: <%= ENV['NAME'] || "G O R O G O R O" %>
-  st_method: <%= ENV['ST_METHOD'] || "B" %>
+  name: <%= ENV['NAME'] %>
+  st_method: <%= ENV['ST_METHOD'] %>
 grid:
   enemy_head: "▓"
   enemy_body: "█"
@@ -8,29 +8,29 @@ grid:
   me_body: "█"
   food: "♥"
 wall:
-  degree: <%= ENV['WALL_DEGREE'] || "7" %>
-  weight: <%= ENV['WALL_WEIGHT'] || "1" %> 
+  degree: <%= ENV['WALL_DEGREE'] %>
+  weight: <%= ENV['WALL_WEIGHT'] %> 
 tree:
-  levels: <%= ENV['TREE_LEVELS'] || "5" %>
-  min_threshold: <%= ENV['TREE_MIN_THRESHOLD'] || "0.5" %>
-  threshold: <%= ENV['TREE_THRESHOLD'] || "0.6" %>
+  levels: <%= ENV['TREE_LEVELS'] %>
+  min_threshold: <%= ENV['TREE_MIN_THRESHOLD'] %>
+  threshold: <%= ENV['TREE_THRESHOLD'] %>
 snake:
   me:
     body:
-      degree: <%= ENV['SNAKE_MY_BODY_DEGREE'] || "2" %>
-      weight: <%= ENV['SNAKE_MY_BODY_WEIGHT'] || "1" %>
+      degree: <%= ENV['SNAKE_MY_BODY_DEGREE'] %>
+      weight: <%= ENV['SNAKE_MY_BODY_WEIGHT'] %>
     head:
-      degree: <%= ENV['SNAKE_MY_HEAD_DEGREE'] || "2" %>
-      weight: <%= ENV['SNAKE_MY_HEAD_WEIGHT'] || "-1" %>
+      degree: <%= ENV['SNAKE_MY_HEAD_DEGREE'] %>
+      weight: <%= ENV['SNAKE_MY_HEAD_WEIGHT'] %>
   enemy:
     body:
-      degree: <%= ENV['SNAKE_ENEMY_BODY_DEGREE'] || "5" %>
-      weight: <%= ENV['SNAKE_ENEMY_BODY_WEIGHT'] || "1" %>
+      degree: <%= ENV['SNAKE_ENEMY_BODY_DEGREE'] %>
+      weight: <%= ENV['SNAKE_ENEMY_BODY_WEIGHT'] %>
     head:
-      degree: <%= ENV['SNAKE_ENEMY_HEAD_DEGREE'] || "10" %>
-      weight: <%= ENV['SNAKE_ENEMY_HEAD_WEIGHT'] || "2" %>
-    length_weight: <%= ENV['SNAKE_ENEMY_LENGTH_WEIGHT'] || "0.6" %>
+      degree: <%= ENV['SNAKE_ENEMY_HEAD_DEGREE'] %>
+      weight: <%= ENV['SNAKE_ENEMY_HEAD_WEIGHT'] %>
+    length_weight: <%= ENV['SNAKE_ENEMY_LENGTH_WEIGHT'] %>
 food: 
-  mult: <%= ENV['FOOD_MULT'] || "2" %>
-  weight: <%= ENV['FOOD_WEIGHT'] || "-2" %>
-  degree: <%= ENV['FOOD_DEGREE'] || "20" %>
+  mult: <%= ENV['FOOD_MULT'] %>
+  weight: <%= ENV['FOOD_WEIGHT'] %>
+  degree: <%= ENV['FOOD_DEGREE'] %>

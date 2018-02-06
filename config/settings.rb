@@ -12,8 +12,16 @@ module Settings
 
   private
 
+  def self.path
+    unless ENV["RACK_ENV"] == "production"
+      "#{File.dirname(__FILE__)}/settings_dev.yml"
+    else
+      "#{File.dirname(__FILE__)}/settings.yml"
+    end
+  end
+
   def self.read
-    YAML.load(ERB.new(File.read(SETTINGS_PATH)).result)
+    YAML.load(ERB.new(File.read(self.path)).result)
   end
 
 end

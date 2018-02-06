@@ -1,0 +1,36 @@
+my_snake:
+  name: "G O R O G O R O"
+  st_method: "B"
+grid:
+  enemy_head: "▓"
+  enemy_body: "█"
+  me_head: "▒"
+  me_body: "█"
+  food: "♥"
+wall:
+  degree: "7"
+  weight: "1" 
+tree:
+  levels: "5"
+  min_threshold: "0.5"
+  threshold: "0.6"
+snake:
+  me:
+    body:
+      degree: "2"
+      weight: "1"
+    head:
+      degree: "2"
+      weight: "-1"
+  enemy:
+    body:
+      degree: "5"
+      weight: "1"
+    head:
+      degree: "10"
+      weight: "2"
+    length_weight: "0.6"
+food: 
+  mult: "2"
+  weight: "-2"
+  degree: "20"

@@ -65,8 +65,7 @@ post '/move' do
     height: parser.height,
     me: parser.you,
     snakes: parser.snakes.collect{|s| Snake.new(id: s["id"], coords: parser.snake(s), health: s["health"])},
-    food: parser.food.collect{|f| Food.new(x:f[0], y:f[1])}
-  )
+    food: parser.food.collect{|f| Food.new(x: f["x"], y: f["y"])})
   # g.print
 
   #2. Paint that grid!
