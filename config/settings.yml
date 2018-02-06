@@ -1,6 +1,7 @@
 my_snake:
   name: <%= ENV['NAME'] %>
   st_method: <%= ENV['ST_METHOD'] %>
+  st_method: <%= ENV['COLOR'] %>
 grid:
   enemy_head: "▓"
   enemy_body: "█"

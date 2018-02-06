@@ -32,7 +32,7 @@ end
 #
 post '/start' do
   	return {
-    	color: Settings.get("my_snake", "st_method") == "B" ? "#1869DF" : "#fc1047",
+    	color: Settings.get("my_snake", "color"),
     	head_url: "http://www.feedrazzi.com/wp-content/uploads/2016/09/UVPAcWGcK.jpg",
       name: Settings.get("my_snake","name"),
     	taunt: "ゴロゴロ",
