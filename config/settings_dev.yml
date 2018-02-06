@@ -1,8 +1,9 @@
 my_snake:
-  name: "G O R O G O R O"
+  name: "Ereptile Disruptiion"
   st_method: "B"
   color: "ff6666"
   head_type: "pixel"
+  head_url: "https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif"
   tail_type: "pixel"
 grid:
   enemy_head: "▓"
