@@ -33,6 +33,7 @@ end
 post '/start' do
   	res = {
     	color: "#" + Settings.get("my_snake", "color"),
+    	secondary_color: "#" + Settings.get("my_snake", "color"),
     	head_url: Settings.get("my_snake","head_url"),
       name: Settings.get("my_snake","name"),
     	taunt: "ゴロゴロ",
