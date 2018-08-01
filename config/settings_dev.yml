@@ -1,5 +1,5 @@
 my_snake:
-  name: "Ereptile Disruptiion"
+  name: "Ereptile Disruption"
   st_method: "B"
   color: "ff6666"
   head_type: "pixel"

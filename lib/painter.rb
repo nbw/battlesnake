@@ -60,7 +60,7 @@ class Painter
         if length_ratio <= 1
           length_weight = Math.exp(length_ratio/Math.exp(1.7))-Math.exp(-1.6)
         else
-          length_weight = 0.6*log(length_ratio)+1
+          length_weight = 0.6*Math.log(length_ratio)+1
         end
         configs = {
           head_degree: Settings.get("snake","enemy","head","degree"),
