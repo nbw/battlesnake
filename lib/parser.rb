@@ -7,11 +7,11 @@ class Parser
   end
 
   def width
-    @body["width"]
+    @body["board"]["width"]
   end
 
   def height
-    @body["height"]
+    @body["board"]["height"]
   end
 
   def you
@@ -19,14 +19,14 @@ class Parser
   end
 
   def food
-    @body["food"]["data"]
+    @body["board"]["food"]
   end
 
   def snakes
-    @body["snakes"]["data"]
+    @body["board"]["snakes"]
   end
 
   def snake snake_resp
-    snake_resp["body"]["data"].uniq
+    snake_resp["body"].uniq
   end
 end
